@@ -16,10 +16,14 @@ const App = () => {
     profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
   };
 
-  
+  const photos = new Array(3).fill(null);
+  //this crates an array and fills it will 3 nulls thwn the map down below replaces the null with the data we need
+
   return (
     <div className="App">
-      <PhotoListItem data={sampleDataForPhotoListItem}/>
+      {photos.map((_, index) => (
+        <PhotoListItem key={index} data={sampleDataForPhotoListItem} />
+      ))}
     </div>
   );
 };
