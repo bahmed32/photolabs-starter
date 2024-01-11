@@ -4,20 +4,22 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 const PhotoFavButton = () => {
-  const { isActive, setIsActive } = useState(false);
+  
+  const [isActive, setIsActive] = useState(false);
+  const switchActive = () => setIsActive(!isActive);
+  // const switchActive = () => ((isActive === "true" ? 'setIsActive' : ''))
 
   const handleClick = () => {
-    console.log('Before:', isActive);
-    setIsActive(!isActive);
-    console.log('After:', isActive);
+    switchActive();
   };
 
   return (
     <div>
-      <FavIcon isActive={isActive} onClick={() => setsActive(!isActive)}
-        className={`icon ${isActive ? 'active' : ''}`} />
       <div className="photo-list__fav-icon">
-        <div className="photo-list__fav-icon-svg">
+        <div className="photo-list__fav-icon-svg"  onClick={handleClick} >
+          <FavIcon
+            selected={isActive}
+          />
           {/* Insert React */}
         </div>
       </div>
@@ -26,3 +28,23 @@ const PhotoFavButton = () => {
 };
 
 export default PhotoFavButton;
+
+// function LightSwitchButton(props) {
+//   const {light, setLight} = props;
+//   const switchLight = () => setLight((light === "on") ? "off" : "on");
+  
+//   const handleClick = () => {
+//     switchLight();
+//     props.increaseAnger(0.1);
+//   };
+  
+//     return (
+//       <button className="LightSwitchButton" onClick={handleClick}>
+//       {props.light === "on" && <span><i>💡</i> I'm on!</span> }
+//       {props.light === "off" &&<span className="off"><i>💡</i> I'm off !</span> }
+//     </button>
+  
+//     )
+//   }
+  
+//   export default LightSwitchButton;

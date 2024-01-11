@@ -1,6 +1,10 @@
 import React from "react";
 
+
 import "../styles/PhotoList.scss";
+import PhotoListItem from "./PhotoListItem";
+// process.env.PUBLIC_URL = "http://localhost:3000";
+
 
 const sampleDataForPhotoList = [
   {
@@ -10,8 +14,8 @@ const sampleDataForPhotoList = [
       country: "Canada",
     },
     urls: {
-      full: `${process.env.PUBLIC_URL}/Image-1-Full.jpeg`,
-      regular: `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
+      full: "http://localhost:3000/Image-1-Full.jpeg",
+      regular: "http://localhost:3000/Image-1-Regular.jpeg",
     },
     user: {
       id: "1",
@@ -56,11 +60,27 @@ const sampleDataForPhotoList = [
   },
 ];
 
+
 const PhotoList = () => {
+  console.log(sampleDataForPhotoList);
+  const mappedPhotoItem = sampleDataForPhotoList.map((photo) => {
+    return (
+      <PhotoListItem
+        key={photo.id}
+        id={photo.id}
+        imageSource={photo.urls.regular}
+        location={photo.location}
+        username={photo.user.username}
+        profile={photo.user.profile} />
+    );
+  });
+
   return (
-    <ul className="photo-list">
-      {/* Insert React */}
-    </ul>
+    <div>
+      <div className="photo-list">
+        {mappedPhotoItem}
+      </div>
+    </div>
   );
 };
 
