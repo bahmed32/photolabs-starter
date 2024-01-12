@@ -4,18 +4,21 @@ import TopNavigationBar from "./TopNavigationBar";
 import PhotoList from "./PhotoList";
 import '../styles/HomeRoute.scss';
 
-function HomeRoute() {
+const HomeRoute = () => {
 
   return (
 
     <div className="home-route">
-      <h1>testing123</h1>
+      <div>
+        <TopNavigationBar />
+        <PhotoList />
+      </div>
     </div>
 
 
   );
 
-}
+};
 
 
 export default HomeRoute;
