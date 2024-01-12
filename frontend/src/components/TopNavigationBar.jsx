@@ -9,10 +9,10 @@ const TopNavigation = () => {
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
 
-      <div className="top-nav-bar__container">
-        <FavBadge />
-        <TopicList />
-      </div>
+
+      <TopicList />
+      <FavBadge />
+
     </div>
 
   );
