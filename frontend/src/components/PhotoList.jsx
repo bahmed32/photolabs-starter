@@ -62,7 +62,7 @@ const sampleDataForPhotoList = [
 
 
 const PhotoList = () => {
-  console.log(sampleDataForPhotoList);
+ 
   const mappedPhotoItem = sampleDataForPhotoList.map((photo) => {
     return (
       <PhotoListItem
