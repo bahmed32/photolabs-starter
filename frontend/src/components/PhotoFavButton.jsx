@@ -13,6 +13,8 @@ const PhotoFavButton = () => {
     switchActive();
   };
 
+  const favoritedPhotos = (() => isActive ? favoritePhotos() : setIsActive);
+
   return (
     <div>
       <div className="photo-list__fav-icon">
