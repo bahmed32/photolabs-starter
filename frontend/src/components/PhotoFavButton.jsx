@@ -7,7 +7,7 @@ const PhotoFavButton = () => {
   
   const [isActive, setIsActive] = useState(false);
   const switchActive = () => setIsActive(!isActive);
-  // const switchActive = () => ((isActive === "true" ? 'setIsActive' : ''))
+
 
   const handleClick = () => {
     switchActive();
