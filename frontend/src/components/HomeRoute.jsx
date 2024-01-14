@@ -14,7 +14,7 @@ const HomeRoute = (props) => {
     <div className="home-route">
       <div>
         <TopNavigationBar topics={props.topics} favourites={favourites} />
-        <PhotoList photos={props.photos} setFavourites={setFavourites} favourites={favourites} setShowModal={props.setShowModal}/>
+        <PhotoList photos={props.photos} setFavourites={setFavourites} favourites={favourites} onShowModalClick={props.onShowModalClick}/>
       </div>
     </div>
 
