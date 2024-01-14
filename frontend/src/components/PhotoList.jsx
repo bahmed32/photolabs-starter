@@ -1,5 +1,4 @@
 import React from "react";
-
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 // process.env.PUBLIC_URL = "http://localhost:3000";
@@ -27,6 +26,8 @@ const PhotoList = (props) => {
     <div>
       <div className="photo-list">
         {mappedPhotoItem}
+      </div>
+      <div className="home-route">
       </div>
     </div>
   );
