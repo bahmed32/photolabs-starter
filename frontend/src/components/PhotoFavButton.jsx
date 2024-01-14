@@ -3,17 +3,17 @@ import React, { useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-const PhotoFavButton = () => {
+const PhotoFavButton = (props) => {
   
   const [isActive, setIsActive] = useState(false);
-  const switchActive = () => setIsActive(!isActive);
-
+  
 
   const handleClick = () => {
-    switchActive();
+    isActive ? props.setFavourites(props.favourites - 1) : props.setFavourites(props.favourites + 1);
+    setIsActive(!isActive);
   };
+  
 
-  const favoritedPhotos = (() => isActive ? favoritePhotos() : setIsActive);
 
   return (
     <div>
@@ -22,7 +22,6 @@ const PhotoFavButton = () => {
           <FavIcon
             selected={isActive}
           />
-          {/* Insert React */}
         </div>
       </div>
     </div>

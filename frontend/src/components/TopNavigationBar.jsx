@@ -11,7 +11,7 @@ const TopNavigation = (props) => {
 
 
       <TopicList topics={props.topics}  />
-      <FavBadge />
+      <FavBadge isFavPhotoExist={props.favourites} />
 
     </div>
 
