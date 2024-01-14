@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
@@ -7,9 +7,10 @@ import HomeRoute from 'components/HomeRoute';
 import photos from 'mocks/photos';
 import topics from "mocks/topics";
 
+
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  
+  const [showModal, setShowModal] = useState(false);
 
 
   // const photos = new Array(3).fill(null);
@@ -18,8 +19,9 @@ const App = () => {
   return (
     <div className="App">
 
-      <HomeRoute photos={photos} topics={topics}/>
-      <PhotoDetailsModal />
+      <HomeRoute photos={photos} topics={topics} />
+      <HomeRoute setShowModal={setShowModal} />
+      {showModal && <PhotoDetailsModal setShowModal={setShowModal} />}
     </div>
   );
 };
