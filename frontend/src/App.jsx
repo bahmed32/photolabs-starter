@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-
+import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import './App.scss';
 import HomeRoute from 'components/HomeRoute';
 import photos from 'mocks/photos';
@@ -19,6 +19,7 @@ const App = () => {
     <div className="App">
 
       <HomeRoute photos={photos} topics={topics}/>
+      <PhotoDetailsModal />
     </div>
   );
 };
