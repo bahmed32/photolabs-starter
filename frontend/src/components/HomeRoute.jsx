@@ -7,7 +7,7 @@ import photos from "mocks/photos";
 
 
 const HomeRoute = (props) => {
-  const [favourites, setFavourites] = useState([]);
+  const [favourites, setFavourites] = useState();
 
 
   return (
@@ -15,7 +15,7 @@ const HomeRoute = (props) => {
     <div className="home-route">
       <div>
         <TopNavigationBar topics={props.topics} favourites={favourites} />
-        <PhotoList photos={props.photos} setFavourites={setFavourites} favourites={favourites} onShowModalClick={props.onShowModalClick}/>
+        <PhotoList photos={props.photos} setFavourites={setFavourites} />
       </div>
     </div>
   );

@@ -19,7 +19,8 @@ const PhotoList = (props) => {
         setFavourites={props.setFavourites}
         favourites={props.favourites}
         setShowModal={props.setShowModal}
-        onShowModalClick={() => props.onShowModalClick(photo)} />
+        onShowModalClick={() => props.onShowModalClick(photo)}
+        toggleFavourite={props.toggleFavourite} />
     );
   });
 

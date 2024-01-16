@@ -9,21 +9,14 @@ const App = () => {
   const initialState = {
     showModal: false,
     photos: photos,
-    photo:{},
+    photo: {},
+    favourites: {},
   };
 
-  // const actionTypes = {
-  //   showModal: (state, action) => ({ ...state, showModal: true, photos: action.photos }),
-  //   hideModal: (state) => ({ ...state, showModal: false, photos: null }),
-  //   default: (state) => ({ ...state, showModal: false }),
-  // };
+  const toggleFavourite = (photoId) => {
+    dispatch({ type: 'toggleFavourite', payload: { id: photoId } });
+  };
 
-  // const reducer = (state, action) => {
-  //   console.log("state", state, "action", action);
-  //   const actionType = actionTypes[action.command] || actionTypes.default;
-  //   console.log("actiotype", actionType);
-  //   return actionType(state, action);
-  // };
   const reducer = (state, action) => {
     switch (action.type) {
       case 'showModal':
@@ -31,6 +24,11 @@ const App = () => {
         return { ...state, showModal: true, photo: action.payload };
       case 'hideModal':
         return { ...state, showModal: false };
+      case 'toggleFavourite':
+        const photoId = action.payload.id;
+        const favourites = { ...state.favourites };
+        favourites[photoId] = !favourites[photoId];
+        return { ...state, favourites };
       default:
         return state;
     }
@@ -42,7 +40,7 @@ const App = () => {
   const onShowModalClick = (photo) => {
     console.log("phototest", photo);
     // console.log("showmodalclick button", onShowModalClick);
-    dispatch({ type: 'showModal', payload: photo});
+    dispatch({ type: 'showModal', payload: photo });
   };
 
   const onHideModalClick = () => {
