@@ -1,5 +1,5 @@
 .photo-details-modal {
-  background-color: white;
+  background-color: #FFFFFF;
   box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
   position: absolute;
   top: 55%;
@@ -12,7 +12,7 @@
 }
 
 .photo-details-modal__close-button {
-  background-color: white;
+  background-color:  #FFFFFF;
   border: none;
   color: white;
   text-align: center;
@@ -31,8 +31,11 @@
 
 .photo-details-modal__image {
   max-width: 95%;
-  border-radius: 8px;
+  border-radius: 0px;
+  text-align: center;
+  align-items: center;
 }
+
 
 .photo-details-modal__top-bar {
   display: flex;
