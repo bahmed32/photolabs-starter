@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import TopNavigationBar from "./TopNavigationBar";
 import PhotoList from "./PhotoList";
 import '../styles/HomeRoute.scss';
+import photos from "mocks/photos";
 
 
 const HomeRoute = (props) => {
@@ -17,8 +18,6 @@ const HomeRoute = (props) => {
         <PhotoList photos={props.photos} setFavourites={setFavourites} favourites={favourites} onShowModalClick={props.onShowModalClick}/>
       </div>
     </div>
-
-
   );
 
 };

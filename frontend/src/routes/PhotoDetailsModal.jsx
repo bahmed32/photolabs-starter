@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from "components/PhotoList";
 
 const PhotoDetailsModal = (props) => {
-  const similarPhotos = [];
-  for (let similar in props.photo.similar_photos) {
-    similarPhotos.push(props.photo.similar_photos[similar]);
-  }
+  // const similarPhotos = props.photos || [];
+
 
   return (
     <div className="photo-details-modal">
@@ -20,7 +18,7 @@ const PhotoDetailsModal = (props) => {
           className="photo-details-modal__image"
           src={props.photo.urls.regular}
         />
-        <section className="photo-details-modal__photographer-details">
+        {/* <section className="photo-details-modal__photographer-details">
           <img
             src={props.photo.user.profile}
             className="photo-details-modal__photographer-profile"
@@ -33,7 +31,8 @@ const PhotoDetailsModal = (props) => {
           </section>
         </section>
         <p className="photo-details-modal__header">Similar Images</p>
-        <PhotoList photo={similarPhotos} />
+        <PhotoList photos={similarPhotos} />
+       */}
       </div>
     </div >
   );
