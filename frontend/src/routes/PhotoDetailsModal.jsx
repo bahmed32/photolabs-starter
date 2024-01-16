@@ -4,11 +4,16 @@ import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from "components/PhotoList";
 
+
 const PhotoDetailsModal = (props) => {
-  // const similarPhotos = props.photos || [];
+  const similarPhotos = props.photo.similar_photos || [];
+
+  console.log("props", props);
 
 
+  console.log("props");
   return (
+
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={() => props.onHideModalClick()}>
         <img src={closeSymbol} alt="close symbol" />
@@ -18,7 +23,7 @@ const PhotoDetailsModal = (props) => {
           className="photo-details-modal__image"
           src={props.photo.urls.regular}
         />
-        {/* <section className="photo-details-modal__photographer-details">
+        <section className="photo-details-modal__photographer-details">
           <img
             src={props.photo.user.profile}
             className="photo-details-modal__photographer-profile"
@@ -32,7 +37,7 @@ const PhotoDetailsModal = (props) => {
         </section>
         <p className="photo-details-modal__header">Similar Images</p>
         <PhotoList photos={similarPhotos} />
-       */}
+
       </div>
     </div >
   );
