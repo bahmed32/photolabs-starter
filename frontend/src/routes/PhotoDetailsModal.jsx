@@ -6,7 +6,7 @@ import PhotoList from "components/PhotoList";
 
 
 const PhotoDetailsModal = (props) => {
-  const similarPhotos = props.photo.similar_photos || [];
+  const similarPhotos = Object.values(props.photo.similar_photos) || [];
 
   console.log("props", props);
 
@@ -21,7 +21,7 @@ const PhotoDetailsModal = (props) => {
       <div className="photo-details-modal__images">
         <img
           className="photo-details-modal__image"
-          src={props.photo.urls.regular}
+          src={props.photo.urls.full}
         />
         <section className="photo-details-modal__photographer-details">
           <img
@@ -35,8 +35,8 @@ const PhotoDetailsModal = (props) => {
             </div>
           </section>
         </section>
-        <p className="photo-details-modal__header">Similar Images</p>
-        <PhotoList photos={similarPhotos} />
+        {/* <p className="photo-details-modal__header">Similar Images</p>
+        <PhotoList photo={similarPhotos} /> */}
 
       </div>
     </div >
