@@ -19,18 +19,18 @@ const App = () => {
 
   const reducer = (state, action) => {
     switch (action.type) {
-      case 'showModal':
-        console.log("hello");
-        return { ...state, showModal: true, photo: action.payload };
-      case 'hideModal':
-        return { ...state, showModal: false };
-      case 'toggleFavourite':
-        const photoId = action.payload.id;
-        const favourites = { ...state.favourites };
-        favourites[photoId] = !favourites[photoId];
-        return { ...state, favourites };
-      default:
-        return state;
+    case 'showModal':
+      console.log("hello");
+      return { ...state, showModal: true, photo: action.payload };
+    case 'hideModal':
+      return { ...state, showModal: false };
+    case 'toggleFavourite':
+      const photoId = action.payload.id;
+      const favourites = { ...state.favourites };
+      favourites[photoId] = !favourites[photoId];
+      return { ...state, favourites };
+    default:
+      return state;
     }
   };
 
@@ -50,9 +50,11 @@ const App = () => {
 
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} onShowModalClick={onShowModalClick} />
+      <HomeRoute photos={photos} topics={topics} onShowModalClick={onShowModalClick} favourites={state.favourites}
+        toggleFavourite={toggleFavourite} />
       {state.showModal && (
-        <PhotoDetailsModal onHideModalClick={onHideModalClick} photo={state.photo} />
+        <PhotoDetailsModal onHideModalClick={onHideModalClick} photo={state.photo} favourites={state.favourites}
+          toggleFavourite={toggleFavourite} />
       )}
     </div>
   );
