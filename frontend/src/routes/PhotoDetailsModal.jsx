@@ -20,7 +20,7 @@ const PhotoDetailsModal = (props) => {
         <img src={closeSymbol} alt="close symbol" />
       </button>
       <div className="photo-details-modal__images">
-        <PhotoFavButton setFavourites={props.setFavourites} favourites={props.favourites} />
+        <PhotoFavButton setFavourites={props.setFavourites} favourites={props.favourites} photoId={props.photoId} toggleFavourite={props.toggleFavourite} />
         <img
           className="photo-details-modal__image"
           src={props.photo.urls.full}
@@ -38,7 +38,7 @@ const PhotoDetailsModal = (props) => {
           </section>
         </section>
         <p className="photo-details-modal__header">Similar Images</p>
-        <PhotoList photos={similarPhotos} />
+        <PhotoList photos={similarPhotos} favourites={props.favourites} toggleFavourite={props.toggleFavourite}/>
 
       </div>
     </div >

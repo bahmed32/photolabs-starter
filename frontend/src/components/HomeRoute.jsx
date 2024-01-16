@@ -14,8 +14,8 @@ const HomeRoute = (props) => {
 
     <div className="home-route">
       <div>
-        <TopNavigationBar topics={props.topics} favourites={favourites} />
-        <PhotoList photos={props.photos} setFavourites={setFavourites} />
+        <TopNavigationBar topics={props.topics} favourites={favourites} setFavourites={setFavourites} />
+        <PhotoList photos={props.photos} setFavourites={setFavourites} favourites={favourites} />
       </div>
     </div>
   );
