@@ -17,8 +17,7 @@ const HomeRoute = (props) => {
       <div>
         <TopNavigationBar topics={props.topics}
           favourites={props.favourites}
-          toggleFavourite={props.toggleFavourite}
-          topicsID={props.currentTopicId} />
+          toggleFavourite={props.toggleFavourite} />
         <PhotoList
           photos={props.photos}
           favourites={props.favourites}
@@ -26,7 +25,6 @@ const HomeRoute = (props) => {
           onShowModalClick={props.onShowModalClick}
         />
       </div>
-      <FavBadge isFavPhotoExist={props.isFavPhotoExist} />
     </div>
   );
 
