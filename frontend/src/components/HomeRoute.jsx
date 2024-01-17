@@ -17,7 +17,8 @@ const HomeRoute = (props) => {
       <div>
         <TopNavigationBar topics={props.topics}
           favourites={props.favourites}
-          toggleFavourite={props.toggleFavourite} />
+          toggleFavourite={props.toggleFavourite}
+          topicsID={props.currentTopicId} />
         <PhotoList
           photos={props.photos}
           favourites={props.favourites}

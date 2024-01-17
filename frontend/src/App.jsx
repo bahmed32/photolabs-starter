@@ -22,7 +22,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute photos={state.photoData} topics={state.topicData} onShowModalClick={onShowModalClick} favourites={state.favourites}
-        toggleFavourite={toggleFavourite} />
+        toggleFavourite={toggleFavourite} topicsID={state.currentTopicId} />
       {state.showModal && (
         <PhotoDetailsModal onHideModalClick={onHideModalClick} photo={state.photo} favourites={state.favourites}
           toggleFavourite={toggleFavourite} />
