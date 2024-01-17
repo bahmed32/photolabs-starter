@@ -22,7 +22,7 @@ const PhotoFavButton = ({ setFavourites, favourites, photoId, toggleFavourite })
     <div>
       <div className="photo-list__fav-icon" onClick={handleClick}>
         <div className="photo-list__fav-icon-svg">
-          <FavIcon displayAlert={!!favourites[photoId]}
+          <FavIcon
             selected={!!favourites[photoId]}
             onClick={() => toggleFavourite(photoId)} />
         </div>

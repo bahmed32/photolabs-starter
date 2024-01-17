@@ -11,7 +11,8 @@ const TopicList = (props) => {
         key={topic.id}
         id={topic.id}
         slug={topic.slug}
-        title={topic.title} />
+        title={topic.title}
+         />
     );
   });
   return (

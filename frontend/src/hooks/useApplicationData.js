@@ -1,17 +1,20 @@
-import { useReducer, useState } from 'react';
-import photos from 'mocks/photos';
+import { useReducer, useEffect } from 'react';
+
 
 const useApplicationData = () => {
-  const [favourites, setFavourites] = useState([]);
-  const initialState = {
-    showModal: false,
-    photos: photos,
-    photo: {},
-    favourites: {},
+
+  const ACTIONS = {
+    SET_PHOTO_DATA: 'SET_PHOTO_DATA',
+    SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   };
 
-  const toggleFavourite = (photoId) => {
-    dispatch({ type: 'toggleFavourite', payload: { id: photoId } });
+
+  const initialState = {
+    showModal: false,
+    // photos: photos,
+    favourites: {},
+    photoData: [],
+    topicData: [],
   };
 
   const reducer = (state, action) => {
@@ -26,12 +29,37 @@ const useApplicationData = () => {
         favourites = { ...state.favourites };
         favourites[photoId] = !favourites[photoId];
         return { ...state, favourites };
+      case 'SET_PHOTO_DATA':
+        return { ...state, photoData: action.payload };
+      case 'SET_TOPIC_DATA':
+        return { ...state, topicData: action.payload };
       default:
         return state;
     }
   };
-
   const [state, dispatch] = useReducer(reducer, initialState);
+
+ 
+  useEffect(() => {
+    fetch("http://localhost:8001/api/photos")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:8001/api/topics")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }));
+  }, []);
+
+
+
+
+  const toggleFavourite = (photoId) => {
+    dispatch({ type: 'toggleFavourite', payload: { id: photoId } });
+  };
+
+
 
   const onShowModalClick = (photo) => {
     dispatch({ type: 'showModal', payload: photo });
@@ -46,6 +74,8 @@ const useApplicationData = () => {
     onShowModalClick,
     onHideModalClick,
     toggleFavourite,
+
+
   };
 };
 

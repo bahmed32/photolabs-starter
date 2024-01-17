@@ -14,7 +14,7 @@ const PhotoListItem = (props) => {
       <PhotoFavButton setFavourites={props.setFavourites} favourites={props.favourites} photoId={id}
         toggleFavourite={props.toggleFavourite}
       />
-      <img className="photo-list__image" src={imageSource} alt={`Photo ${id}`} onClick={() => props.onShowModalClick(props.photo)} />
+      <img className="photo-list__image" src={imageSource} alt={`Photo ${id}`} onClick={() => props.onShowModalClick(props.photos)} />
 
 
 
