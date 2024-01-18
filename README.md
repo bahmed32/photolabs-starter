@@ -1,7 +1,9 @@
 # react-photolabs
-The PhotoLabs project for the Web Development React course programming.
+PhotoLabs is a web development project built using JavaScript, React, SCSS, HTML, and CSS. This photo viewing site offers users a platform to explore and engage with various categories of photos, providing an experience akin to popular platforms like Instagram. Users can not only browse through different photo topics but also engage with the content through features like liking and favoriting their favorite photos.
 
 # Photolabs
+![Homepage]()
+![Modal]()
 
 ## Setup
 
