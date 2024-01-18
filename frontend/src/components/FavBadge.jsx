@@ -4,14 +4,16 @@ import FavIcon from './FavIcon';
 import '../styles/FavBadge.scss';
 
 const FavBadge = ({ isFavPhotoExist }) => {
-  let photokey = false;
-  if (isFavPhotoExist && Object.keys(isFavPhotoExist).length > 0) {
-    photokey = true;
-  }
+
+  const checkFavPhotos = Object.values(isFavPhotoExist).filter((element) => {
+    return element === true;
+  });
+
+  const isFavPhotos = checkFavPhotos.length > 0;
+
   return (
-    <div className='fav-badge'>
-      {/* <FavIcon displayAlert={!!isFavPhotoExist} selected={!!isFavPhotoExist} /> */}
-      <FavIcon displayAlert={photokey} selected={photokey} />
+    <div className="fav-badge">
+      <FavIcon displayAlert={isFavPhotos} selected={true} />
     </div>
   );
 };

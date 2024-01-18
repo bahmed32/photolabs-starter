@@ -1,4 +1,6 @@
 import { useReducer, useEffect } from 'react';
+import reducer from './reducer';
+
 
 //helper function that maintains state of app
 const useApplicationData = () => {
@@ -9,6 +11,9 @@ const useApplicationData = () => {
   };
 
 
+  const photosWebLink = 'http://localhost:8001/api/photos';
+  const topicsWebLink = "http://localhost:8001/api/topics";
+
   const initialState = {
     showModal: false,
     favourites: {},
@@ -16,32 +21,13 @@ const useApplicationData = () => {
     topicData: [],
   };
 
-  const reducer = (state, action) => {
-    let photoId, favourites;
-    switch (action.type) {
-    case 'showModal':
-      return { ...state, showModal: true, photo: action.payload };
-    case 'hideModal':
-      return { ...state, showModal: false };
-    case 'toggleFavourite':
-      photoId = action.payload.id;
-      favourites = { ...state.favourites };
-      favourites[photoId] = !favourites[photoId];
-      return { ...state, favourites };
-    case 'SET_PHOTO_DATA':
-      return { ...state, photoData: action.payload };
-    case 'SET_TOPIC_DATA':
-      return { ...state, topicData: action.payload };
-    default:
-      return state;
-    }
-  };
+  
   const [state, dispatch] = useReducer(reducer, initialState);
 
   // fetches photos from seed data
 
   useEffect(() => {
-    fetch("http://localhost:8001/api/photos")
+    fetch(photosWebLink)
       .then((response) => response.json())
       .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
   }, []);
@@ -49,7 +35,7 @@ const useApplicationData = () => {
   // fetches topics from seed data
 
   useEffect(() => {
-    fetch("http://localhost:8001/api/topics")
+    fetch(topicsWebLink)
       .then((response) => response.json())
       .then((data) => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }));
   }, []);
@@ -78,6 +64,11 @@ const useApplicationData = () => {
       .then((data) => dispatch({ type: 'SET_PHOTO_DATA', payload: data }))
       .catch((error) => console.error('Error fetching photos by topic:', error));
   };
+
+
+
+
+
   return {
     state,
     onShowModalClick,
