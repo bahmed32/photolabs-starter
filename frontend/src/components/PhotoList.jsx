@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
-// process.env.PUBLIC_URL = "http://localhost:3000";
+
 
 
 

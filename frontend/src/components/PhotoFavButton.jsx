@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-const PhotoFavButton = ({ setFavourites, favourites, photoId, toggleFavourite }) => {
+const PhotoFavButton = ({ favourites, photoId, toggleFavourite }) => {
 
-  // const [isActive, setIsActive] = useState(false);
+
 
   const handleClick = () => {
     if (typeof toggleFavourite === 'function') {
       toggleFavourite(photoId);
     }
   };
-  //   isActive ? setFavourites(favourites - 1) : setFavourites(favourites + 1);
-  //   setIsActive(!isActive);
-  // };
-
+ 
 
 
 

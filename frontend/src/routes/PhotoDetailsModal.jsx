@@ -7,12 +7,12 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 
 const PhotoDetailsModal = (props) => {
-  const similarPhotos = Object.values(props.photo.similar_photos) || [];
+  //checks similar photos exists
+  const similarPhotos = props.photo.similar_photos ? Object.values(props.photo.similar_photos) : [];
 
-  console.log("props", props);
+  
 
 
-  console.log("props");
   return (
 
     <div className="photo-details-modal">

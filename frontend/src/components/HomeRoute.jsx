@@ -1,23 +1,25 @@
 
-import React, { useState } from "react";
+import React from "react";
 import TopNavigationBar from "./TopNavigationBar";
 import PhotoList from "./PhotoList";
 import '../styles/HomeRoute.scss';
-import FavBadge from "./FavBadge";
+
 
 
 
 const HomeRoute = (props) => {
-  // const [favourites, setFavourites] = useState();
+
 
 
   return (
+
 
     <div className="home-route">
       <div>
         <TopNavigationBar topics={props.topics}
           favourites={props.favourites}
-          toggleFavourite={props.toggleFavourite} />
+          toggleFavourite={props.toggleFavourite}
+          fetchPhotosByTopic={props.fetchPhotosByTopic} />
         <PhotoList
           photos={props.photos}
           favourites={props.favourites}

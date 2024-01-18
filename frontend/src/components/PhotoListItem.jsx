@@ -18,7 +18,7 @@ const PhotoListItem = (props) => {
 
 
 
-      {/* Additional details can be added based on your data structure */}
+
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={profile} alt={`Profile ${id}`} />
         <div>

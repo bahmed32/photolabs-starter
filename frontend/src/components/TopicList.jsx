@@ -5,13 +5,15 @@ import "../styles/TopicList.scss";
 
 const TopicList = (props) => {
 
+
   const mappedTopicList = props.topics.map((topic) => {
     return (
       <TopicListItem
         key={topic.id}
         id={topic.id}
         slug={topic.slug}
-        title={topic.title} />
+        title={topic.title}
+        fetchPhotosByTopic={props.fetchPhotosByTopic} />
     );
   });
   return (
